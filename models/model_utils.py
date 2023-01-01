@@ -114,8 +114,8 @@ class SuperPointNet_process(object):
           coor: (B, N, 2)  (x, y)
 
         """
-        import torchgeometry as tgm
-        m = tgm.contrib.SpatialSoftArgmax2d()
+        import kornia.geometry as KG
+        m = KG.SpatialSoftArgmax2d().to(patches.device)
         coords = m(patches)  # 1x4x2
         return coords
 
